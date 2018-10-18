@@ -159,7 +159,7 @@ $(document).ready(function() {
       return gameWon;
     }
 
-    function gamOver(gameWon) {
+    function gameOver(gameWon) {
       for (let index of winCombos[gomeWon.index]) {
         document.getElementById(index).style.backgroundColor =
           gameWon.player === playerX ? "blue" : "red"
