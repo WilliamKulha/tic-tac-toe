@@ -102,54 +102,63 @@ $(function() {
       newGame.originalBoard[0] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#0').unbind('click');
     });
     $('#1').click(function() {
       document.getElementById('1').innerText = newGame.currentTurn;
       newGame.originalBoard[1] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#1').unbind('click');
     });
     $('#2').click(function() {
       document.getElementById('2').innerText = newGame.currentTurn;
       newGame.originalBoard[2] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#2').unbind('click');
     });
     $('#3').click(function() {
       document.getElementById('3').innerText = newGame.currentTurn;
       newGame.originalBoard[3] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#3').unbind('click');
     });
     $('#4').click(function() {
       document.getElementById('4').innerText = newGame.currentTurn;
       newGame.originalBoard[4] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#4').unbind('click');
     });
     $('#5').click(function() {
       document.getElementById('5').innerText = newGame.currentTurn;
       newGame.originalBoard[5] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#5').unbind('click');
     });
     $('#6').click(function() {
       document.getElementById('6').innerText = newGame.currentTurn;
       newGame.originalBoard[6] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#6').unbind('click');
     });
     $('#7').click(function() {
       document.getElementById('7').innerText = newGame.currentTurn;
       newGame.originalBoard[7] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#7').unbind('click');
     });
     $('#8').click(function() {
       document.getElementById('8').innerText = newGame.currentTurn;
       newGame.originalBoard[8] = newGame.currentTurn;
       newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
       newGame.nextTurn();
+      $('#8').unbind('click');
     });
   });
 });
