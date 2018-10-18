@@ -9,49 +9,50 @@
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="container">
 
       <header id="title">
         <h1>Tic Tac Toe</h1>
       </header>
 
-      <div id="player_select" class="text-center">
-        <form id="play_style_form">
-          <div class="form-group game_selector">
-            <input id="two_players" type="radio" name="play_style" value=2></input>
-            <label class="drink_game multiplayer" for="two_players"></label>
-            <input id="vs_computer" type="radio" name="play_style" value=1></input>
-            <label class="drink_game single_player" for="vs_computer"></label>
-            <br>
+      <div class="row text-center" id="player_select">
+        <div class="col-sm-12">
+          <form id="play_style_form">
+            <div class="form-group game_selector">
+              <input id="two_players" type="radio" name="play_style" value=2></input>
+              <label class="drink_game multiplayer" for="two_players"></label>
+              <input id="vs_computer" type="radio" name="play_style" value=1></input>
+              <label class="drink_game single_player" for="vs_computer"></label>
+            </div>
             <button type="submit" class="btn btn-lg btn-primary">start</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
-      <div id="game_board">
-        <table style="width:100%">
-          <tr>
-            <td class="cell" id='0'></td>
-            <td class="cell" id='1'></td>
-            <td class="cell" id='2'></td>
-          </tr>
-          <tr>
-            <td class="cell" id='3'></td>
-            <td class="cell" id='4'></td>
-            <td class="cell" id='5'></td>
-          </tr>
-          <tr>
-            <td class="cell" id='6'></td>
-            <td class="cell" id='7'></td>
-            <td class="cell" id='8'></td>
-          </tr>
-        </table>
-
+      <div id="game_board" class="row text-center">
+        <div class="col-sm-12">
+          <table>
+            <tr>
+              <td class="cell" id='0'></td>
+              <td class="cell" id='1'></td>
+              <td class="cell" id='2'></td>
+            </tr>
+            <tr>
+              <td class="cell" id='3'></td>
+              <td class="cell" id='4'></td>
+              <td class="cell" id='5'></td>
+            </tr>
+            <tr>
+              <td class="cell" id='6'></td>
+              <td class="cell" id='7'></td>
+              <td class="cell" id='8'></td>
+            </tr>
+          </table>
+        </div>
       </div>
-
-      <footer id="footer">
-        <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      </footer>
     </div>
+    <footer id="footer">
+      <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    </footer>
   </body>
 </html>
