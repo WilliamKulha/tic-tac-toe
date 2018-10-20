@@ -27,6 +27,7 @@ Game.prototype.currentPlayer = function() {
     return this.player2;
   }
 }
+
 Game.prototype.checkWin = function() {
   this.board.winCombos.forEach((combo) => {
     let firstCell = combo[0];
@@ -35,6 +36,10 @@ Game.prototype.checkWin = function() {
     console.log(this.originalBoard)
 
     if (this.originalBoard[firstCell] === this.originalBoard[secondCell] && this.originalBoard[thirdCell] === this.originalBoard[firstCell] && this.originalBoard[thirdCell] != '') {
+      document.getElementById(`${firstCell}`).style.backgroundColor = "#00FA9A";
+      document.getElementById(`${secondCell}`).style.backgroundColor = "#00FA9A";
+      document.getElementById(`${thirdCell}`).style.backgroundColor = "#00FA9A";
+      
       if (this.currentTurn === 'X') {
         alert('X has won!');
       } else {
@@ -44,7 +49,9 @@ Game.prototype.checkWin = function() {
   });
 }
 
-//add method for checking for winner after other objects have been defined.
+Game.prototype.checkDraw = function() {
+
+}
 
 function Player(mark) {
   this.mark = mark;
