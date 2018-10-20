@@ -5,7 +5,7 @@ function Game (player1, player2, board) {
   this.turnsArray = ['X', 'O'];
   this.currentTurn = this.turnsArray[0]
   this.board = board;
-  this.originalBoard = Array.from(Array(9).keys());
+  this.originalBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 }
 
 Game.prototype.nextTurn = function() {
@@ -28,18 +28,19 @@ Game.prototype.currentPlayer = function() {
   }
 }
 Game.prototype.checkWin = function() {
-  this.board.winCombos.forEach(function(combo) {
+  this.board.winCombos.forEach((combo) => {
     let firstCell = combo[0];
     let secondCell = combo[1];
     let thirdCell = combo[2];
-    let tempArray = [firstCell, secondCell, thirdCell]
-    tempArray.forEach(function(array) {
-      if ($(`#${tempArray[1]}`).innerText === this.currentTurn
-          && $(`#${tempArray[2]}`).innerText === this.currentTurn
-          && $(`#${tempArray[3]}`).innerText === this.currentTurn) {
-          alert('WON');
-        }
-    });
+    console.log(this.originalBoard)
+
+    if (this.originalBoard[firstCell] === this.originalBoard[secondCell] && this.originalBoard[thirdCell] === this.originalBoard[firstCell] && this.originalBoard[thirdCell] != '') {
+      if (this.currentTurn === 'X') {
+        alert('X has won!');
+      } else {
+        alert('O has won!');
+      }
+    }
   });
 }
 
@@ -47,10 +48,6 @@ Game.prototype.checkWin = function() {
 
 function Player(mark) {
   this.mark = mark;
-}
-
-Player.prototype.whichMark = function() {
-  console.log(this.mark);
 }
 
 function Board() {
@@ -86,13 +83,14 @@ $(function() {
     let playerX = new Player('X');
     let playerO = new Player('O');
     let newBoard = new Board();
-    let newGame = new Game(playerX, playerO, newBoard);
+    const newGame = new Game(playerX, playerO, newBoard);
     console.log(newGame);
 
 
     $('#0').click(function() {
       document.getElementById('0').innerText = newGame.currentTurn;
       newGame.originalBoard[0] = newGame.currentTurn;
+      console.log(newGame)
       newGame.checkWin()
       newGame.nextTurn();
       $('#0').unbind('click');
