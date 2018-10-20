@@ -27,30 +27,22 @@ Game.prototype.currentPlayer = function() {
     return this.player2;
   }
 }
-Game.prototype.checkWin = function(game, board, player) {
-  //use reduce method. It'll go through every thing in the array. A is what is returned. I is the index
-  let plays = board.reduce((accumulator, element, index) =>
-  //If the element is equal to the player, then we'll push that index to the array.
-    (element === player) ? accumulator.concat(index) :accumulator, []);
-  let gameWon = null;
-  for (let [index, win] of game.board.winCombos.entries()) {
-    //has the player played in every spot that counts as a win for that win array entry?
-    if(win.every(elem => plays.indexOf(elem) > -1)) {
-      gameWon = {index: index, player: player};
-      break;
-    }
-  }
-  return gameWon;
+Game.prototype.checkWin = function() {
+  this.board.winCombos.forEach(function(combo) {
+    let firstCell = combo[0];
+    let secondCell = combo[1];
+    let thirdCell = combo[2];
+    let tempArray = [firstCell, secondCell, thirdCell]
+    tempArray.forEach(function(array) {
+      if ($(`#${tempArray[1]}`).innerText === this.currentTurn
+          && $(`#${tempArray[2]}`).innerText === this.currentTurn
+          && $(`#${tempArray[3]}`).innerText === this.currentTurn) {
+          alert('WON');
+        }
+    });
+  });
 }
 
-Game.prototype.turnClick = function() {
-  turn(square.target.id, Game.currentMark());
-  function turn(squareID, mark) {
-    origBoard[squareID] = mark;
-    document.getElementById(squareId).innerText = mark;
-  }
-
-}
 //add method for checking for winner after other objects have been defined.
 
 function Player(mark) {
@@ -65,7 +57,6 @@ function Board() {
   this.cells = document.querySelectorAll('.cell');
   for (let currentCell = 0; currentCell <this.cells.length; currentCell++) {
     this.cells[currentCell].innerText = '';
-    this.cells[currentCell].addEventListener('click', Player.prototype.turnClick, false);
     }
   this.winCombos = [
     [0, 1, 2], [0, 3, 6], [0, 4, 8],
@@ -97,66 +88,68 @@ $(function() {
     let newBoard = new Board();
     let newGame = new Game(playerX, playerO, newBoard);
     console.log(newGame);
+
+
     $('#0').click(function() {
       document.getElementById('0').innerText = newGame.currentTurn;
       newGame.originalBoard[0] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#0').unbind('click');
     });
     $('#1').click(function() {
       document.getElementById('1').innerText = newGame.currentTurn;
       newGame.originalBoard[1] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#1').unbind('click');
     });
     $('#2').click(function() {
       document.getElementById('2').innerText = newGame.currentTurn;
       newGame.originalBoard[2] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#2').unbind('click');
     });
     $('#3').click(function() {
       document.getElementById('3').innerText = newGame.currentTurn;
       newGame.originalBoard[3] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#3').unbind('click');
     });
     $('#4').click(function() {
       document.getElementById('4').innerText = newGame.currentTurn;
       newGame.originalBoard[4] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#4').unbind('click');
     });
     $('#5').click(function() {
       document.getElementById('5').innerText = newGame.currentTurn;
       newGame.originalBoard[5] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#5').unbind('click');
     });
     $('#6').click(function() {
       document.getElementById('6').innerText = newGame.currentTurn;
       newGame.originalBoard[6] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#6').unbind('click');
     });
     $('#7').click(function() {
       document.getElementById('7').innerText = newGame.currentTurn;
       newGame.originalBoard[7] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#7').unbind('click');
     });
     $('#8').click(function() {
       document.getElementById('8').innerText = newGame.currentTurn;
       newGame.originalBoard[8] = newGame.currentTurn;
-      newGame.checkWin(newGame, newGame.originalBoard, newGame.currentTurn)
+      newGame.checkWin()
       newGame.nextTurn();
       $('#8').unbind('click');
     });
