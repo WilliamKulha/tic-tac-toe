@@ -1,11 +1,12 @@
 //Business Logic
-function Game (player1, player2, board) {
+function Game (player1, player2, board, isVsComp) {
   this.player1 = player1;
   this.player2 = player2;
   this.turnsArray = ['X', 'O'];
   this.currentTurn = this.turnsArray[0]
   this.board = board;
-  this.originalBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  this.originalBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  this.isVsComp = isVsComp;
 }
 
 Game.prototype.nextTurn = function() {
@@ -39,7 +40,7 @@ Game.prototype.checkWin = function() {
       document.getElementById(`${firstCell}`).style.backgroundColor = "#00FA9A";
       document.getElementById(`${secondCell}`).style.backgroundColor = "#00FA9A";
       document.getElementById(`${thirdCell}`).style.backgroundColor = "#00FA9A";
-      
+
       if (this.currentTurn === 'X') {
         alert('X has won!');
       } else {
@@ -51,6 +52,32 @@ Game.prototype.checkWin = function() {
 
 Game.prototype.checkDraw = function() {
 
+}
+/*
+Game.prototype.play = function() {
+   $(".cell").click(() => {
+     let boardDiv = $(this).parent().parent();
+     boardDiv.find('')
+   })
+}
+*/
+
+Game.prototype.computerTurn = function() {
+  if (this.isVsComp === 'yes') {
+    let possibleMoves = [];
+    let board = this.originalBoard;
+    for(let index = 0; index <= board.length; index++) {
+      let currentIndex = board[index]
+      if (typeof(currentIndex) === 'number') {
+        possibleMoves.push(currentIndex);
+      }
+    }
+    let spotToUse = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+    document.getElementById(`${spotToUse}`).innerText = this.currentTurn;
+    this.originalBoard[spotToUse] = this.currentTurn;
+    $(`#${spotToUse}`).unbind('click');
+
+  }
 }
 
 function Player(mark) {
@@ -79,6 +106,7 @@ Board.prototype.beenMarked = function(cellNumber) {
 
 
 
+
 //User Logic
 $(function() {
   $('form#play_style_form').submit(function(event) {
@@ -86,21 +114,25 @@ $(function() {
 
     $('#player_select').hide();
     $('#game_board').slideDown();
-
+    let isVsComp = $('input:radio[name=play_style]:checked').val();
     let playerX = new Player('X');
     let playerO = new Player('O');
     let newBoard = new Board();
-    const newGame = new Game(playerX, playerO, newBoard);
+    const newGame = new Game(playerX, playerO, newBoard, isVsComp);
     console.log(newGame);
 
 
     $('#0').click(function() {
       document.getElementById('0').innerText = newGame.currentTurn;
       newGame.originalBoard[0] = newGame.currentTurn;
-      console.log(newGame)
-      newGame.checkWin()
+      newGame.checkWin();
       newGame.nextTurn();
       $('#0').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#1').click(function() {
       document.getElementById('1').innerText = newGame.currentTurn;
@@ -108,6 +140,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#1').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#2').click(function() {
       document.getElementById('2').innerText = newGame.currentTurn;
@@ -115,6 +152,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#2').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#3').click(function() {
       document.getElementById('3').innerText = newGame.currentTurn;
@@ -122,6 +164,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#3').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#4').click(function() {
       document.getElementById('4').innerText = newGame.currentTurn;
@@ -129,6 +176,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#4').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#5').click(function() {
       document.getElementById('5').innerText = newGame.currentTurn;
@@ -136,6 +188,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#5').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#6').click(function() {
       document.getElementById('6').innerText = newGame.currentTurn;
@@ -143,6 +200,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#6').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#7').click(function() {
       document.getElementById('7').innerText = newGame.currentTurn;
@@ -150,6 +212,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#7').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
     $('#8').click(function() {
       document.getElementById('8').innerText = newGame.currentTurn;
@@ -157,6 +224,11 @@ $(function() {
       newGame.checkWin()
       newGame.nextTurn();
       $('#8').unbind('click');
+      setTimeout(function(){
+        newGame.computerTurn();
+        newGame.checkWin();
+        newGame.nextTurn();
+      }, 2000);
     });
   });
 });
