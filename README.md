@@ -15,6 +15,8 @@ _This is a webpage that I made to practice BDD and OO javaScript with learnhowto
 **Player takes a turn** | User input: clicks on cell number 3 | Output: that player's mark is put into that cell, and the array that stores the moves is updated to reflect the move.|
 **Program checks if anyone has won after every turn** | Input: player clicks on cell 6 | Output: if the player has three marks in a row, the game returns that the player has won, otherwise it continues. |
 **If the player has won, the game board is hidden and an announcement that the player has won is displayed** | Input: Player clicks a cell that gives them three marks in a row | Output: 'Player {the player's symbol} has won!' |
+**If the player has not won, check if the game is a draw** | Input: Player clicks on the last available space, and does not win. | Output: 'It's a draw!' |
+**Regardless of the outcome, if the game is over a button is shown to the player(s) that allows them to play again** | Input: Player clicks last available square. | Output: "RESULT", and a play again button. |
 
 
 
