@@ -19,14 +19,18 @@
         <div class="col-sm-12">
           <form id="play_style_form">
             <div class="form-group game_selector">
-              <input id="two_players" type="radio" name="play_style" value=2 required></input>
+              <input id="two_players" type="radio" name="play_style" value='no' required></input>
               <label class="drink_game multiplayer" for="two_players"></label>
-              <input id="vs_computer" type="radio" name="play_style" value=1></input>
+              <input id="vs_computer" type="radio" name="play_style" value='yes'></input>
               <label class="drink_game single_player" for="vs_computer"></label>
             </div>
             <button type="submit" class="btn btn-lg btn-primary">start</button>
           </form>
         </div>
+      </div>
+
+      <div class="text-center" id="gameOver">
+        <h2><span class="winner_here"></span></h2>
       </div>
 
       <div id="game_board" class="row text-center">
